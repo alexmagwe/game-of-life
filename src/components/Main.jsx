@@ -104,6 +104,7 @@ function Main(props) {
     )}
     );
     setTimeout(runSimulation,speedRef.current*100);
+// eslint-disable-next-line react-hooks/exhaustive-deps
 },[rows])
 
     const handleStart=()=>{

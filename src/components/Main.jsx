@@ -11,7 +11,7 @@ function Main(props) {
                 for (let i=0;i<rows;i++){
                     trows.push(Array.from(Array(columns),()=>(Math.random()>density?0:1)))
                 };
-                setrandomize(true)
+         
             break;
             case 1:
                
@@ -32,7 +32,6 @@ function Main(props) {
     
 }
     const [density, setdensity] = useState(0.5)
-    const [randomize,setrandomize]=useState(false)
     const [running,setrunning]=useState(false)
     const [speed, setspeed] = useState(10)
     const [generations, setgenerations] = useState(0)

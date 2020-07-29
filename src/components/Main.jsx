@@ -101,24 +101,20 @@ function Main(props) {
                 setrunning(false)
             }
             setgenerations(generations=>generations+=1)
-                            
-
     }
     )}
     );
     setTimeout(runSimulation,speedRef.current*100);
 },[rows])
+
     const handleStart=()=>{
-        
-          runningRef.current=running
-          setrunning(!running)
+        runningRef.current=running
+        setrunning(!running)
         runningRef.current=true
         runSimulation()
 
-    
     }
     const handleReset=()=>{
-
         setgrid(setgridState(0))
         setrunning(false)
         setgenerations(0)
@@ -131,15 +127,15 @@ function Main(props) {
         setgrid(setgridState(1))
     }
     const handleSpeedup=()=>{
-setspeed(speed=>speed===0?2:speed-=2)
+        setspeed(speed=>speed===0?2:speed-=2)
 
     }
    const handleSlowdown=()=>{
-setspeed(speed=>speed+=2)
+        setspeed(speed=>speed+=2)
     }
     const decreaseDensity=()=>{
         setdensity(density=>density===0?0.1:density-0.1)
-                setgrid(setgridState('random'))
+        setgrid(setgridState('random'))
 
 
     }
@@ -164,22 +160,20 @@ setspeed(speed=>speed+=2)
             <Button onClick={saturated} variant="outlined" color="primary">overpopulation</Button>
             <Button onClick={increaseDensity} variant="outlined" color="primary">density +</Button>
             <Button onClick={decreaseDensity} variant="outlined" color="primary">density -</Button>
-<Button onClick={()=>setshow(!show)} variant="outlined" color="primary">About</Button>
-    <h2 className='generations'>Generation {generations}</h2>
-
-
+            <Button onClick={()=>setshow(!show)} variant="outlined" color="primary">About</Button>
+             <h2 className='generations'>Generation {generations}</h2>
         </div>
-        <Info hide={{show,setshow}}/>
+            <Info hide={{show,setshow}}/>
 
-        <div className='grid-container'>
-        <div  style={styles.grid}>
-        {
-        grid.map((row,i)=>
-            row.map((col,k)=>
-           <div style={{backgroundColor:grid[i][k]?'green':'white',
+            <div className='grid-container'>
+            <div  style={styles.grid}>
+            {
+                grid.map((row,i)=>
+                row.map((col,k)=>
+               <div style={{backgroundColor:grid[i][k]?'green':'white',
                    border:'1px solid black',width:20,height:20}} onClick={()=>handleClick(i,k)} key={`${i}-${k}`}>
 
-           </div>
+               </div>
            ))
 
         }
